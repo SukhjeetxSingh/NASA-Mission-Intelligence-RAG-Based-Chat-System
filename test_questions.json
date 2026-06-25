@@ -1,0 +1,38 @@
+[
+    {
+      "id": "q1",
+      "question": "What was the main objective of Apollo 11?",
+      "category": "overview",
+      "mission": "apollo_11"
+    },
+    {
+      "id": "q2",
+      "question": "What emergency or failure situation is described in the Apollo 13 mission documents?",
+      "category": "emergency",
+      "mission": "apollo_13"
+    },
+    {
+      "id": "q3",
+      "question": "What factors are discussed in the Challenger disaster documentation?",
+      "category": "disaster_analysis",
+      "mission": "challenger"
+    },
+    {
+      "id": "q4",
+      "question": "Which crew members are mentioned in the Apollo 11 mission files?",
+      "category": "crew",
+      "mission": "apollo_11"
+    },
+    {
+      "id": "q5",
+      "question": "What technical procedures or flight details are described in the Apollo 13 files?",
+      "category": "technical",
+      "mission": "apollo_13"
+    },
+    {
+      "id": "q6",
+      "question": "Give a short timeline of the main events in Apollo 11.",
+      "category": "timeline",
+      "mission": "apollo_11"
+    }
+  ]
