@@ -47,13 +47,20 @@ By completing this project, you will learn to:
 
 3. **Set up your OpenAI API key**:
    ```bash
+<<<<<<< HEAD
    export OPENAI_API_KEY="voc-95750758112667751238016a3cde90ccd468.98630201"
+=======
+   export OPENAI_API_KEY="your-api-key-here"
+>>>>>>> 554f49b5684c8e09f95b7653794a1219b41baf55
    export OPENAI_BASE_URL="https://openai.vocareum.com/v1"
 
    echo $OPENAI_API_KEY
    echo $OPENAI_BASE_URL
+<<<<<<< HEAD
    export OPENAI_API_KEY="your-api-key-here" 
 
+=======
+>>>>>>> 554f49b5684c8e09f95b7653794a1219b41baf55
 
    python embedding_pipeline.py --openai-key "$OPENAI_API_KEY" --data-path ./data_text --chroma-dir ./chroma_db_openai --collection-name nasa_space_missions_text
    ```
