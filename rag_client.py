@@ -68,21 +68,31 @@ def initialize_rag_system(chroma_dir: str, collection_name: str):
 
 
 def retrieve_documents(collection, query: str, n_results: int = 3,
-                      mission_filter: Optional[str] = None) -> Optional[Dict]:
+                      mission_filter: Optional[str] = None,
+                      openai_api_key: Optional[str] = None) -> Optional[Dict]:
     """Retrieve relevant documents from ChromaDB with optional filtering"""
     where = None
     if mission_filter and str(mission_filter).lower() not in {'all', 'any', 'none', ''}:
         where = {'mission': mission_filter}
     try:
+        import os
+        from openai import OpenAI
+        api_key = openai_api_key or os.getenv("OPENAI_API_KEY", "")
+        client = OpenAI(
+            api_key=api_key,
+            base_url=os.getenv("OPENAI_BASE_URL", "https://openai.vocareum.com/v1")
+        )
+        resp = client.embeddings.create(model="text-embedding-3-small", input=[query])
+        query_embedding = resp.data[0].embedding
         return collection.query(
-            query_texts=[query],
+            query_embeddings=[query_embedding],
             n_results=int(n_results),
             where=where,
-            include=['documents', 'metadatas', 'distances', 'ids']
+            include=["documents", "metadatas", "distances"]
         )
-    except Exception:
+    except Exception as e:
+        print(f"retrieve_documents error: {e}")
         return None
-
 
 def format_context(documents: List[str], metadatas: List[Dict]) -> str:
     """Format retrieved documents into context"""

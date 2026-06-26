@@ -425,8 +425,8 @@ def main():
     parser.add_argument("--chroma-dir", default="./chroma_db_openai", help="ChromaDB persist directory")
     parser.add_argument("--collection-name", default="nasa_space_missions_text", help="Collection name")
     parser.add_argument("--embedding-model", default="text-embedding-3-small", help="OpenAI embedding model")
-    parser.add_argument("--chunk-size", type=int, default=500, help="Text chunk size")
-    parser.add_argument("--chunk-overlap", type=int, default=100, help="Chunk overlap size")
+    parser.add_argument("--chunk-size", type=int, default=1000, help="Text chunk size")
+    parser.add_argument("--chunk-overlap", type=int, default=200, help="Chunk overlap size")
     parser.add_argument("--batch-size", type=int, default=50, help="Batch size for processing")
     parser.add_argument("--update-mode", choices=["skip", "update", "replace"], default="skip",
                         help="How to handle existing documents: skip, update, or replace")

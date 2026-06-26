@@ -33,37 +33,49 @@ By completing this project, you will learn to:
 - Basic understanding of Python, APIs, and vector databases
 - Familiarity with machine learning concepts
 
-### Installation
+## 🚀 Project Setup & Run Guide
 
-1. **Navigate to the project folder**:
-   ```bash
-   cd project
-   ```
 
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Setup & Run
 
-3. **Set up your OpenAI API key**:
-   ```bash
-<<<<<<< HEAD
-   export OPENAI_API_KEY="voc-95750758112667751238016a3cde90ccd468.98630201"
-=======
-   export OPENAI_API_KEY="your-api-key-here"
->>>>>>> 554f49b5684c8e09f95b7653794a1219b41baf55
-   export OPENAI_BASE_URL="https://openai.vocareum.com/v1"
+### First Time
+```bash
+pip install -r requirements.txt
+bash setup_env.sh
+export OPENAI_API_KEY="your-key"
+export OPENAI_BASE_URL="https://openai.vocareum.com/v1"
+python embedding_pipeline.py --openai-key "$OPENAI_API_KEY" --data-path ./data_text --chroma-dir ./chroma_db_openai --collection-name nasa_space_missions_text
+streamlit run chat.py
+```
 
-   echo $OPENAI_API_KEY
-   echo $OPENAI_BASE_URL
-<<<<<<< HEAD
-   export OPENAI_API_KEY="your-api-key-here" 
+### Batch Evaluation
+```bash
+python batch_evaluate.py --openai-key "$OPENAI_API_KEY" --test-file test_questions.json
+```
 
-=======
->>>>>>> 554f49b5684c8e09f95b7653794a1219b41baf55
+## Evaluation Dataset
+`test_questions.json` contains 6 mission-relevant questions spanning:
+- overview, emergency, disaster analysis, crew, technical, timeline
 
-   python embedding_pipeline.py --openai-key "$OPENAI_API_KEY" --data-path ./data_text --chroma-dir ./chroma_db_openai --collection-name nasa_space_missions_text
-   ```
+## Metrics
+- **Response Relevancy** (RAGAS)
+- **Faithfulness** (RAGAS)
+- **ROUGE-L** (additional metric)
+
+
+### ⚡ Subsequent Runs (Workspace Already Set Up)
+
+```bash
+# 1. Navigate to project
+cd project
+
+# 2. Set API keys
+export OPENAI_API_KEY="your-api-key-here"
+export OPENAI_BASE_URL="https://openai.vocareum.com/v1"
+
+# 3. Launch app
+streamlit run chat.py
+```
 
 
 ## 📚 Learning Path
@@ -338,6 +350,15 @@ When submitting your completed project:
 2. Test the complete workflow end-to-end
 3. Document any additional features or improvements you added
 4. Provide sample queries and expected responses
+
+## Sample Batch Evaluation Output
+```
+Valid samples: 6
+Aggregate metrics:
+  answer_relevancy: mean=0.8486, min=0.4298, max=1.0000
+  faithfulness:     mean=0.8869, min=0.7143, max=1.0000
+  rouge_l:          mean=0.1151, min=0.0750, max=0.2065
+```
 
 ---
 

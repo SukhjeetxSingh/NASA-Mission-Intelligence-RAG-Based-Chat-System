@@ -1,17 +1,8 @@
-<<<<<<< HEAD
 chromadb==1.5.7
 openai==2.31.0
 langchain-openai==1.1.13
 ragas==0.4.3
 pandas==3.0.2
 streamlit==1.56.0
-pysqlite3-binary
-=======
-ragas==0.1.14
-langchain==0.2.14
-langchain-community==0.2.14
-langchain-core==0.2.33
-langchain-openai==0.1.22
-langchain-google-vertexai
-python-dotenv==1.0.1
->>>>>>> 554f49b5684c8e09f95b7653794a1219b41baf55
+rouge-score
+pysqlite3-binary 
